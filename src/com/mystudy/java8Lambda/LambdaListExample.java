@@ -33,7 +33,8 @@ public class LambdaListExample {
         printAll(persons);
 
         //Create a method that prints name beginning with B
-        printNamewithB(persons,p -> p.getLastname().startsWith("A"));
+      //  printNamewithB(persons,p -> p.getLastname().startsWith("A"));
+        printNamewithB(persons);
 
     }
 
@@ -42,7 +43,12 @@ public class LambdaListExample {
             System.out.println(person.getFirstname()+" "+person.getLastname()+" "+person.getAge());
     }
 
-    public static void printNamewithB(List<Person> persons, Predicate<Person> personPredicate){
+    public static void printNamewithB(List<Person> persons){
+        for(Person person:persons){
+            if (person.getLastname().startsWith("B")){
+                System.out.println(person.getFirstname()+" "+person.getLastname()+" "+person.getAge());
+            }
+        }
 
     }
 
@@ -87,5 +93,10 @@ class Person {
 
     public void setFirstname(String firstname) {
         this.firstname = firstname;
+    }
+
+    @Override
+    public String toString(){
+        return this.getFirstname()+" "+this.getLastname()+" "+this.getAge();
     }
 }
