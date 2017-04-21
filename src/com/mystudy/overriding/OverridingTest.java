@@ -1,11 +1,13 @@
 package com.mystudy.overriding;
 
+import java.io.IOException;
+
 /**
  * Created by bbose on 4/12/17.
  */
 public class OverridingTest {
 
-    public static void main(String[] args){
+    public static void main(String[] args) throws Exception{
         Vehicle vehicle = new Car();
         //Parent class variable will call the overriden method in child class
         vehicle.display();
@@ -22,7 +24,7 @@ public class OverridingTest {
 
 class Vehicle{
 
-    public void display(){
+    public void display() throws Exception{
         System.out.println("I am in Vehicle");
     }
 
@@ -36,7 +38,7 @@ class Vehicle{
 }
 
 class Car extends Vehicle{
-    public void display(){
+    public void display() throws Exception{
         System.out.println("I am in Car");
     }
 
