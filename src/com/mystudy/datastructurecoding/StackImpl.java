@@ -8,8 +8,7 @@ import org.junit.Test;
 public class StackImpl {
     Integer size = 5;
     Integer[] numberArray = new Integer[size];
-    Integer top =0
-            ;
+    Integer top =0;
 
     public void push(Integer element){
         if (!isFull())

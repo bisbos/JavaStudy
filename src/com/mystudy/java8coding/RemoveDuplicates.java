@@ -1,6 +1,9 @@
 package com.mystudy.java8coding;
 
 
+import java.util.Arrays;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 /**
  * Created by bbose on 4/18/17.
@@ -15,13 +18,15 @@ public class RemoveDuplicates {
 
 
     public static void main(String[] args){
-    /*    String value="aaab";
-        System.out.println(removeDuplicates(value,2)); */
-    /*    String value="aabbaa";
-        System.out.println(removeDuplicates(value,1)); */
-        String value="aabb";
+        String value="aaab";
+        System.out.println(removeDuplicates(value,2));
+        value="aabbaa";
+        System.out.println(removeDuplicates(value,1));
+        value="aabb";
         System.out.println(removeDuplicates(value,1));
 
+        System.out.println("-----------------------------------");
+        removeDuplicatesJava8(value,1);
     }
 
     public static String removeDuplicates(String value,Integer maxConsecutiveChar){
@@ -45,5 +50,9 @@ public class RemoveDuplicates {
         }
 
 
+        public static void removeDuplicatesJava8(String value,Integer maxConsecutiveChar){
+            Integer count =0;
+
+        }
 
 }
