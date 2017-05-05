@@ -20,8 +20,8 @@ public class SynchronizationStudy {
 
 class WorkerThread {
 
-    void printTable(int n) {//method not synchronized
-        for (int i = 1; i <= 10; i++) {
+   static synchronized void printTable(int n) {//method not synchronized
+        for (int i = 1; i <= 5; i++) {
             System.out.println(Thread.currentThread().getName()+" Executing Non Synchronized Method 1 :"+n * i);
             try {
                 Thread.sleep(4000);
@@ -31,7 +31,7 @@ class WorkerThread {
         }
     }
 
-    void printTable1(int n) {//method not synchronized
+   static synchronized void printTable1(int n) {//method not synchronized
         for (int i = 1; i <= 5; i++) {
             System.out.println(Thread.currentThread().getName()+" Executing Non Synchronized Method 2 :"+n * i);
             try {
@@ -63,7 +63,7 @@ class MyThread1 extends Thread{
 
     public void run(){
         thread.printTable(5);
-        thread.printTable(10);
+    //    thread.printTable(10);
    //     thread.printTable3(5);
     }
 }
@@ -75,7 +75,7 @@ class MyThread2 extends Thread{
     }
 
     public void run(){
-        thread.printTable(100);
+     //   thread.printTable(100);
         thread.printTable1(1000);
     //    thread.printTable3(10);
     }

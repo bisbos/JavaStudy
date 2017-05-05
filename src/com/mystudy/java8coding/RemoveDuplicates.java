@@ -2,6 +2,7 @@ package com.mystudy.java8coding;
 
 
 import java.util.Arrays;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -51,7 +52,20 @@ public class RemoveDuplicates {
 
 
         public static void removeDuplicatesJava8(String value,Integer maxConsecutiveChar){
-            Integer count =0;
+            AtomicInteger count = new AtomicInteger();
+            value.chars()
+                    .filter(e->count.intValue()<maxConsecutiveChar)
+                    .mapToObj(e-> {
+                        if (count.intValue()<maxConsecutiveChar)
+                              count.incrementAndGet();
+                        else
+                                count.getAndSet(0);
+                        System.out.println(count);
+                return (char) e;
+            })
+                    .forEach(System.out::print);
+
+            value.chars().mapToObj(e->(char)e);
 
         }
 
